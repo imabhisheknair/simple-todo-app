@@ -29,4 +29,4 @@ Then go to the browser and enter the URL http://127.0.0.1:8000/
 
 ## APIs:
 - To list all the todo items: http://127.0.0.1:8000/view
-- To get the details of individual item: http://127.0.0.1:8000/view/<id>
+- To get the details of individual item: http://127.0.0.1:8000/view/id
