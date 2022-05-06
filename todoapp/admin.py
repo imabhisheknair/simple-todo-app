@@ -1,7 +1,6 @@
 from django.contrib import admin
 from .models import Todolist
-from django.contrib.auth.admin import UserAdmin
-# Register your models here.
+
 
 class MyClassAdmin(admin.ModelAdmin):
     readonly_fields = ('created_at', 'modified_at', 'deleted')
@@ -10,6 +9,7 @@ class MyClassAdmin(admin.ModelAdmin):
 
     list_filter = ("status", 'deleted')
     actions = ["download_csv"]
+    
     def download_csv(self, request, queryset):
         import csv
         from django.http import HttpResponse
@@ -27,6 +27,7 @@ class MyClassAdmin(admin.ModelAdmin):
         response = HttpResponse(f, content_type='text/csv')
         response['Content-Disposition'] = 'attachment; filename=todo-list.csv'
         return response
+
     download_csv.short_description = "Download CSV for selected todolists"
 
 
